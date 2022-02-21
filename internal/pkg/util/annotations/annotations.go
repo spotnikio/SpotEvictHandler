@@ -18,7 +18,8 @@ func GetSpotnikAnnotationsValueFromPod(pod *coreV1.Pod) types.Annotations {
 		value, _ := strconv.ParseBool(val)
 		annotations.EvictPod = value
 	} else {
-		annotations.EvictPod = true
+		value, _ := strconv.ParseBool(constants.EvictPodAnnotationDefault)
+		annotations.EvictPod = value
 	}
 
 	// annotations for pod internal webhook

@@ -49,7 +49,7 @@ func NewController(client kubernetes.Interface) (*Controller, error) {
 	c.NodeName = util.Getenv("POD_NODE_NAME", "")
 	logrus.Infof("Node: %s is detected", c.NodeName)
 
-	// get the cloud proviser
+	// get the cloud provider
 	c.CloudProvider = constants.CloudProviderName
 	logrus.Infof("Cloud provider is %s", c.CloudProvider)
 

@@ -27,7 +27,8 @@ func GetPodFilterdByNode(podsIndex cache.Indexer, nodeName string) coreV1.PodLis
 
 	for _, i := range podsIndex.List() {
 		pod := i.(*coreV1.Pod)
-		if pod.Spec.NodeName == nodeName && pod.ObjectMeta.OwnerReferences[0].Kind == "ReplicaSet" {
+		//TODO: ignore daemonset pods and system napmespaces
+		if pod.Spec.NodeName == nodeName {
 			plist.Items = append(plist.Items, *pod)
 		}
 	}

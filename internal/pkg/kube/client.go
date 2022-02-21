@@ -4,10 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"k8s.io/client-go/tools/clientcmd"
-
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
+	"k8s.io/client-go/tools/clientcmd"
 )
 
 // GetKubernetesClient gets the client for k8s, if ~/.kube/config exists so get that config else incluster config

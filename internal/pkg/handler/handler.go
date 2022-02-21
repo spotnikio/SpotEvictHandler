@@ -28,9 +28,9 @@ func Run(c *controller.Controller) {
 		if isPreempt {
 			logrus.Infof("New evict event was catched: %s", c.NodeName)
 			evictor.Evictor(c)
+			//wait peacefully to die, after saving all his family and friends
+			select {}
 		}
-		//wait peacefully to die, after saving all his family and friends
-		select {}
 
 	case "google":
 		JsonEventsOutput, err := util.GetEvent("http://metadata.google.internal/computeMetadata/v1/instance/scheduling/preemptible", "Metadata-Flavor", "Google")
@@ -46,9 +46,9 @@ func Run(c *controller.Controller) {
 		if isPreempt {
 			logrus.Infof("New evict event was catched: %s", c.NodeName)
 			evictor.Evictor(c)
+			//wait peacefully to die, after saving all his family and friends
+			select {}
 		}
-		//wait peacefully to die, after saving all his family and friends
-		select {}
 
 	case "amazon":
 		JsonEventsOutput, err := util.GetEvent("http://169.254.169.254/latest/meta-data/spot/instance-action", "Metadata", "true")
@@ -64,9 +64,9 @@ func Run(c *controller.Controller) {
 		if isPreempt {
 			logrus.Infof("New evict event was catched: %s", c.NodeName)
 			evictor.Evictor(c)
+			//wait peacefully to die, after saving all his family and friends
+			select {}
 		}
-		//wait peacefully to die, after saving all his family and friends
-		select {}
 
 	default:
 		logrus.Fatal("this Cloud Provider: %s is not supported", cloudProvider)

@@ -102,7 +102,7 @@ func configureLogging() error {
 		if err != nil {
 			log.Fatal(err)
 		}
-		hook := logrustash.New(conn, logrustash.DefaultFormatter(logrus.Fields{"AppName": "SpotnikGo"}))
+		hook := logrustash.New(conn, logrustash.DefaultFormatter(logrus.Fields{"AppName": "SpotEvictHandler"}))
 		logrus.AddHook(hook)
 
 	}

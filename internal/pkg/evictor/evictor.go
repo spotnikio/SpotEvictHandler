@@ -48,7 +48,7 @@ func Evictor(c *controller.Controller) {
 		if annotations.EvictPod {
 			EvictPod(c.Client, &p)
 		}
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
 
 	elapsed := time.Since(start)
